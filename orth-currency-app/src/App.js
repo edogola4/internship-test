@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import CurrencyList from './components/CurrencyList';
+import { GlobalStyle } from './styles/GlobalStyle';
 
 function App() {
+  const [currencies, setCurrencies] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/fx.json')
+      .then(response => response.json())
+      .then(data => {
+        const formattedCurrencies = Object.keys(data.KES).map(currency => ({
+          code: currency,
+          rate: data.KES[currency]
+        }));
+        setCurrencies(formattedCurrencies);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <GlobalStyle />
+      <div className="App">
+        <Header />
+        <SearchBar currencies={currencies} />
+        <Routes>
+          <Route path="/" element={<CurrencyList currencies={currencies} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
