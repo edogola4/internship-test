@@ -33,10 +33,8 @@ const Rate = styled.div`
 
 // CurrencyItem component
 const CurrencyItem = ({ country, currency, rate, code }) => {
-   const flagUrl = `${process.env.PUBLIC_URL}/flags/${code.toLowerCase()}.png`;
-   //const flagUrl = `${window.location.origin}/flags/${code.toLowerCase()}.png`;
-  //const flagUrl = `${process.env.PUBLIC_URL}/flags/${code}.png`; 
-
+  // Update the flag path to reference the correct folder
+  const flagUrl = `/flags/${code.toLowerCase()}.png`;
 
   return (
     <ItemWrapper>
@@ -46,7 +44,7 @@ const CurrencyItem = ({ country, currency, rate, code }) => {
         alt={`${country} flag`}
         onError={(e) => {
           e.target.onerror = null; // Prevent infinite error loops
-          e.target.src = `${process.env.PUBLIC_URL}/flags/default.png`; // Fallback to default flag
+          e.target.src = `/flags/default.png`; // Fallback to default flag
         }}
       />
       {/* Display Currency Details */}
