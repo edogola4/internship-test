@@ -33,7 +33,10 @@ const Rate = styled.div`
 
 // CurrencyItem component
 const CurrencyItem = ({ country, currency, rate, code }) => {
-  const flagUrl = `${process.env.PUBLIC_URL}/flags/${code.toLowerCase()}.png`;
+   const flagUrl = `${process.env.PUBLIC_URL}/flags/${code.toLowerCase()}.png`;
+   //const flagUrl = `${window.location.origin}/flags/${code.toLowerCase()}.png`;
+  //const flagUrl = `${process.env.PUBLIC_URL}/flags/${code}.png`; 
+
 
   return (
     <ItemWrapper>
