@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+// Styled components
 const ItemWrapper = styled.li`
   display: flex;
   align-items: center;
@@ -30,10 +31,9 @@ const Rate = styled.div`
   color: #007bff;
 `;
 
+// CurrencyItem component
 const CurrencyItem = ({ country, currency, rate, code }) => {
-  //const flagUrl = `/flags/${code.toLowerCase()}.png`; // Assuming flag files are named after currency codes
-  const flagUrl = `${process.env.PUBLIC_URL}/flags/${code}.png`;  // Ensure you use PUBLIC_URL
-
+  const flagUrl = `${process.env.PUBLIC_URL}/flags/${code.toLowerCase()}.png`;
 
   return (
     <ItemWrapper>
@@ -42,11 +42,11 @@ const CurrencyItem = ({ country, currency, rate, code }) => {
         src={flagUrl}
         alt={`${country} flag`}
         onError={(e) => {
-          e.target.onerror = null;
-          e.target.src = "/flags/default.png"; // Fallback to a default flag
+          e.target.onerror = null; // Prevent infinite error loops
+          e.target.src = `${process.env.PUBLIC_URL}/flags/default.png`; // Fallback to default flag
         }}
       />
-      {/* Display Country Name */}
+      {/* Display Currency Details */}
       <Details>
         <div>{country}</div>
         <div>{currency}</div>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import CurrencyItem from "./CurrencyItem";
 
+// Styled components
 const ListWrapper = styled.ul`
   list-style: none;
   padding: 0;

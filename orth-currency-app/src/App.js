@@ -5,7 +5,6 @@ import CurrencyList from "./components/CurrencyList";
 import rawFxData from "./data/fx.json"; // Updated JSON file
 import "./App.css";
 
-
 const App = () => {
   const [currencies, setCurrencies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
