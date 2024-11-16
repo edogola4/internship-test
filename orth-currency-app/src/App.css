@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  .search-bar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem;
+    z-index: 1000;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .currency-list {
+    padding: 1rem;
+  }
+  
+  .currency-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+  }
+  
+  .currency-flag {
+    width: 40px;
+    height: 30px;
+    margin-right: 1rem;
+  }
+  
+  .currency-details {
+    flex: 1;
+  }
+  
+  .currency-name {
+    font-weight: bold;
+    display: block;
+  }
+  
+  .currency-code {
+    color: #888;
+  }
+  
+  .currency-rate {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
