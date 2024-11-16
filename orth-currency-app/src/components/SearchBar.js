@@ -1,65 +1,57 @@
 import React from "react";
 import styled from "styled-components";
+import { FiSearch } from "react-icons/fi"; // Importing a modern search icon
 
 const SearchWrapper = styled.div`
   position: sticky;
   top: 0;
-  background: #f9f9f9;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #f8f9fa;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   z-index: 100;
   display: flex;
-  justify-content: center;
   align-items: center;
-`;
-
-const InputWrapper = styled.div`
-  width: 100%;
-  max-width: 600px;
-  position: relative;
+  gap: 0.5rem;
 `;
 
 const Input = styled.input`
-  width: 100%;
-  padding: 0.8rem 1rem;
+  flex: 1;
+  padding: 0.5rem 0.75rem;
   font-size: 1rem;
   border: 1px solid #ddd;
-  border-radius: 30px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  outline: none;
-
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  
   &:focus {
     border-color: #0077b6;
-    box-shadow: 0 0 8px rgba(0, 119, 182, 0.3);
+    box-shadow: 0 0 4px rgba(0, 119, 182, 0.5);
+    outline: none;
   }
 
-  &::placeholder {
-    color: #aaa;
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    padding: 0.5rem;
   }
 `;
 
-const Label = styled.label`
-  position: absolute;
-  top: -1.5rem;
-  left: 1rem;
-  font-size: 0.9rem;
-  color: #555;
+const IconWrapper = styled.div`
+  color: #6c757d;
+  font-size: 1.2rem;
 `;
 
 const SearchBar = ({ searchTerm, onSearch }) => {
   return (
     <SearchWrapper>
-      <InputWrapper>
-        <Label htmlFor="search-input">Search Currencies</Label>
-        <Input
-          id="search-input"
-          type="text"
-          value={searchTerm}
-          onChange={(e) => onSearch(e.target.value)}
-          placeholder="Search by currency or country..."
-        />
-      </InputWrapper>
+      <IconWrapper>
+        <FiSearch />
+      </IconWrapper>
+      <Input
+        type="text"
+        value={searchTerm}
+        onChange={(e) => onSearch(e.target.value)}
+        placeholder="Search by currency or country..."
+        aria-label="Search currencies or countries"
+      />
     </SearchWrapper>
   );
 };

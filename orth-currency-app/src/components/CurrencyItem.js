@@ -31,7 +31,9 @@ const Rate = styled.div`
 `;
 
 const CurrencyItem = ({ country, currency, rate, code }) => {
-  const flagUrl = `/flags/${code.toLowerCase()}.png`; // Assuming flag files are named after currency codes
+  //const flagUrl = `/flags/${code.toLowerCase()}.png`; // Assuming flag files are named after currency codes
+  const flagUrl = `${process.env.PUBLIC_URL}/flags/${code}.png`;  // Ensure you use PUBLIC_URL
+
 
   return (
     <ItemWrapper>
