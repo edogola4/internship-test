@@ -6,22 +6,23 @@ const HeaderWrapper = styled.header`
   color: white;
   padding: 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
-  /* Responsive Design */
+  /* Mobile Responsiveness */
   @media (max-width: 768px) {
-    font-size: 1.2rem;
-    padding: 0.8rem;
+    font-size: 1.5rem;
   }
 `;
 
 const Header = () => (
-  <HeaderWrapper role="banner">Currency Exchange Rates</HeaderWrapper>
+  <HeaderWrapper aria-label="Currency Exchange Rates Header">
+    Currency Exchange Rates
+  </HeaderWrapper>
 );
 
 export default Header;
