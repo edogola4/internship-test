@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import CurrencyList from "./components/CurrencyList";
 import rawFxData from "./data/fx.json"; // Updated JSON file
+import CountryFlags from "./components/CountryFlags"; // Import CountryFlags
 import "./App.css";
 
 const App = () => {
@@ -71,9 +72,12 @@ const App = () => {
             No currencies found. Try a different search term.
           </p>
         )}
+        {/* Render the CountryFlags component below */}
+        <CountryFlags />
       </main>
     </div>
   );
 };
 
 export default App;
+
